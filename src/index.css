@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #d4af37;
+  --color-gold-light: #f1d592;
+  --color-bank-black: #0c0601;
+  --color-bank-dark: #1a140e;
+}
+
+body {
+  @apply bg-bank-black text-gray-100 antialiased selection:bg-gold selection:text-bank-black;
+  background-image: radial-gradient(circle at 50% -20%, #2a1f0d 0%, #0c0601 70%);
+  min-height: 100vh;
+}
+
+.gold-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.gold-text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-gold via-gold-light to-gold;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #d4af37, #f1d592, #d4af37) 1;
+}
+
+.glass-panel {
+  @apply bg-bank-dark/80 backdrop-blur-md border border-gold/10 rounded-2xl;
+}
+
+.btn-gold {
+  @apply bg-gradient-to-r from-gold via-gold-light to-gold text-bank-black font-bold py-3 px-6 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.input-field {
+  @apply bg-bank-black border border-gold/20 rounded-xl px-4 py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-all text-white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-bank-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gold/20 rounded-full hover:bg-gold/40;
+}
